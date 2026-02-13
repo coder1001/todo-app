@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eine elegante Todo-Liste App zum Organisieren deiner Aufgaben">
+  <title>Todo Liste — Organisiere deinen Tag</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="app-bg"></div>
+
+  <main class="app">
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <h1>Meine Aufgaben</h1>
+      </div>
+      <p class="subtitle" id="dateDisplay"></p>
+    </header>
+
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-number" id="totalCount">0</span>
+        <span class="stat-label">Gesamt</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" id="activeCount">0</span>
+        <span class="stat-label">Offen</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" id="completedCount">0</span>
+        <span class="stat-label">Erledigt</span>
+      </div>
+      <div class="progress-ring-container">
+        <svg class="progress-ring" viewBox="0 0 48 48">
+          <circle class="progress-ring-bg" cx="24" cy="24" r="20" />
+          <circle class="progress-ring-fill" id="progressRing" cx="24" cy="24" r="20" />
+        </svg>
+        <span class="progress-text" id="progressText">0%</span>
+      </div>
+    </div>
+
+    <form class="add-form" id="addForm">
+      <input
+        type="text"
+        id="todoInput"
+        class="add-input"
+        placeholder="Neue Aufgabe hinzufügen…"
+        autocomplete="off"
+        maxlength="120"
+      />
+      <button type="submit" class="add-btn" id="addBtn" aria-label="Aufgabe hinzufügen">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </button>
+    </form>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">Alle</button>
+      <button class="filter-btn" data-filter="active">Offen</button>
+      <button class="filter-btn" data-filter="completed">Erledigt</button>
+    </div>
+
+    <ul class="todo-list" id="todoList"></ul>
+
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">📋</div>
+      <p>Keine Aufgaben vorhanden</p>
+      <span>Füge deine erste Aufgabe hinzu!</span>
+    </div>
+
+    <footer class="app-footer" id="appFooter">
+      <span id="itemsLeft">0 Aufgaben offen</span>
+      <button class="clear-btn" id="clearCompleted">Erledigte löschen</button>
+    </footer>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
